@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Border AI - Intelligent Surveillance</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🛡
+            </div>
+
+            <div>
+                <h2>Border AI</h2>
+
+                <span>
+                    Intelligent Surveillance
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="navigation">
+
+            <button
+                class="menu-item active"
+                data-page="dashboard"
+                onclick="showPage('dashboard')">
+
+                ▦
+
+                <span>
+                    Dashboard
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-item"
+                data-page="cameras"
+                onclick="showPage('cameras')">
+
+                ▣
+
+                <span>
+                    Cameras
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-item"
+                data-page="recordings"
+                onclick="showPage('recordings')">
+
+                ▶
+
+                <span>
+                    Recordings
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-item"
+                data-page="events"
+                onclick="showPage('events')">
+
+                ⚠
+
+                <span>
+                    Events
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-item"
+                data-page="analytics"
+                onclick="showPage('analytics')">
+
+                ◇
+
+                <span>
+                    Analytics
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- SYSTEM STATUS -->
+
+        <div class="sidebar-status">
+
+            <div class="status-dot"></div>
+
+            <div>
+
+                <strong>
+                    System Online
+                </strong>
+
+                <small>
+                    AI engine active
+                </small>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOP BAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div></div>
+
+            <div class="topbar-right">
+
+                <span id="clock">
+                    00:00:00
+                </span>
+
+
+                <div class="system-online">
+
+                    <span class="green-dot"></span>
+
+                    SYSTEM ONLINE
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section
+            id="dashboard"
+            class="page">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Real-time border surveillance monitoring
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+            <div class="stats-grid">
+
+
+                <!-- PEOPLE IN -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <span>
+                            PEOPLE IN
+                        </span>
+
+                        <strong id="people-in">
+                            0
+                        </strong>
+
+                        <small>
+                            Currently inside
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PEOPLE OUT -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ↗
+                    </div>
+
+                    <div>
+
+                        <span>
+                            PEOPLE OUT
+                        </span>
+
+                        <strong id="people-out">
+                            0
+                        </strong>
+
+                        <small>
+                            Today's exits
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- STAYING -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⏱
+                    </div>
+
+                    <div>
+
+                        <span>
+                            STAYING
+                        </span>
+
+                        <strong id="people-staying">
+                            0
+                        </strong>
+
+                        <small>
+                            Currently detected
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ALERTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⚠
+                    </div>
+
+                    <div>
+
+                        <span>
+                            ACTIVE ALERTS
+                        </span>
+
+                        <strong id="active-alerts">
+                            0
+                        </strong>
+
+                        <small>
+                            Requires attention
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LIVE SURVEILLANCE HEADER
+            ================================================== -->
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Live Surveillance
+                    </h2>
+
+                    <p>
+                        Real-time AI-powered camera monitoring
+                    </p>
+
+                </div>
+
+
+                <!-- ALL CAMERA CONTROLS -->
+
+                <div class="camera-controls">
+
+                    <button
+                        class="btn-on"
+                        onclick="turnAllCamerasOn()">
+
+                        ▶ ALL CAMERAS ON
+
+                    </button>
+
+
+                    <button
+                        class="btn-off"
+                        onclick="turnAllCamerasOff()">
+
+                        ■ ALL CAMERAS OFF
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CAMERA GRID
+            ================================================== -->
+
+            <div class="camera-grid">
+
+
+                <!-- =================================================
+                     CAMERA 01
+                ================================================== -->
+
+                <div class="camera-card">
+
+                    <div class="camera-header">
+
+                        <div>
+
+                            <strong>
+                                CAMERA 01
+                            </strong>
+
+                            <span
+                                id="status-1"
+                                class="offline">
+
+                                OFFLINE
+
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            id="camera-btn-1"
+                            class="camera-button"
+                            onclick="toggleCamera(1)">
+
+                            ON
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div
+                        id="screen-1"
+                        class="camera-screen">
+
+
+                        <!-- CAMERA LABEL -->
+
+                        <div class="camera-label">
+
+                            CAM 01
+
+                        </div>
+
+
+                        <!-- AI LABEL -->
+
+                        <div class="ai-label">
+
+                            ● AI
+
+                        </div>
+
+
+                        <!-- STREAM -->
+
+                        <img
+                            id="stream-1"
+                            src=""
+                            alt="Camera 01 Stream">
+
+
+                        <!-- OFFLINE MESSAGE -->
+
+                        <div
+                            class="offline-message"
+                            id="offline-1">
+
+                            <div class="camera-symbol">
+                                ▣
+                            </div>
+
+                            <strong>
+                                CAMERA OFFLINE
+                            </strong>
+
+                            <span>
+                                Press ON to start camera
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CAMERA 02
+                ================================================== -->
+
+                <div class="camera-card">
+
+                    <div class="camera-header">
+
+                        <div>
+
+                            <strong>
+                                CAMERA 02
+                            </strong>
+
+                            <span
+                                id="status-2"
+                                class="offline">
+
+                                OFFLINE
+
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            id="camera-btn-2"
+                            class="camera-button"
+                            onclick="toggleCamera(2)">
+
+                            ON
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div
+                        id="screen-2"
+                        class="camera-screen">
+
+
+                        <div class="camera-label">
+
+                            CAM 02
+
+                        </div>
+
+
+                        <div class="ai-label">
+
+                            ● AI
+
+                        </div>
+
+
+                        <img
+                            id="stream-2"
+                            src=""
+                            alt="Camera 02 Stream">
+
+
+                        <div
+                            class="offline-message"
+                            id="offline-2">
+
+                            <div class="camera-symbol">
+                                ▣
+                            </div>
+
+                            <strong>
+                                CAMERA OFFLINE
+                            </strong>
+
+                            <span>
+                                DroidCam: 192.168.1.7
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CAMERA 03
+                ================================================== -->
+
+                <div class="camera-card">
+
+                    <div class="camera-header">
+
+                        <div>
+
+                            <strong>
+                                CAMERA 03
+                            </strong>
+
+                            <span
+                                id="status-3"
+                                class="offline">
+
+                                OFFLINE
+
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            id="camera-btn-3"
+                            class="camera-button"
+                            onclick="toggleCamera(3)">
+
+                            ON
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div
+                        id="screen-3"
+                        class="camera-screen">
+
+
+                        <div class="camera-label">
+
+                            CAM 03
+
+                        </div>
+
+
+                        <div class="ai-label">
+
+                            ● AI
+
+                        </div>
+
+
+                        <img
+                            id="stream-3"
+                            src=""
+                            alt="Camera 03 Stream">
+
+
+                        <div
+                            class="offline-message"
+                            id="offline-3">
+
+                            <div class="camera-symbol">
+                                ▣
+                            </div>
+
+                            <strong>
+                                CAMERA OFFLINE
+                            </strong>
+
+                            <span>
+                                DroidCam: 192.168.1.11
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 BOTTOM DASHBOARD
+            ================================================== -->
+
+            <div class="bottom-grid">
+
+
+                <!-- RECENT EVENTS -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Recent Events
+                            </h2>
+
+                            <p>
+                                Latest AI detections
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            onclick="showPage('events')">
+
+                            VIEW ALL →
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="recent-events"
+                        class="events-container">
+
+                        <p class="empty-message">
+
+                            No events detected yet.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SYSTEM HEALTH -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                System Health
+                            </h2>
+
+                            <p>
+                                Current infrastructure status
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="health-item">
+
+                        <span>
+                            AI Detection Engine
+                        </span>
+
+                        <strong class="health-good">
+
+                            ● ACTIVE
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="health-item">
+
+                        <span>
+                            Camera System
+                        </span>
+
+                        <strong
+                            id="camera-health"
+                            class="health-good">
+
+                            0/3 CAMERAS ONLINE
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="health-item">
+
+                        <span>
+                            Backend Server
+                        </span>
+
+                        <strong class="health-good">
+
+                            ● ACTIVE
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CAMERAS PAGE
+        ====================================================== -->
+
+        <section
+            id="cameras"
+            class="page"
+            style="display:none;">
+
+
+            <div class="page-header">
+
+                <h1>
+                    Camera Management
+                </h1>
+
+                <p>
+                    Manage connected surveillance cameras
+                </p>
+
+            </div>
+
+
+
+            <div class="management-grid">
+
+
+                <!-- CAMERA 01 -->
+
+                <div class="management-card">
+
+                    <h3>
+                        Camera 01
+                    </h3>
+
+                    <p>
+                        Laptop / USB Camera
+                    </p>
+
+                    <strong
+                        id="manage-status-1"
+                        class="offline">
+
+                        OFFLINE
+
+                    </strong>
+
+                    <button
+                        onclick="toggleCamera(1)">
+
+                        ON / OFF
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- CAMERA 02 -->
+
+                <div class="management-card">
+
+                    <h3>
+                        Camera 02
+                    </h3>
+
+                    <p>
+                        DroidCam - 192.168.1.7
+                    </p>
+
+                    <strong
+                        id="manage-status-2"
+                        class="offline">
+
+                        OFFLINE
+
+                    </strong>
+
+                    <button
+                        onclick="toggleCamera(2)">
+
+                        ON / OFF
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- CAMERA 03 -->
+
+                <div class="management-card">
+
+                    <h3>
+                        Camera 03
+                    </h3>
+
+                    <p>
+                        DroidCam - 192.168.1.11
+                    </p>
+
+                    <strong
+                        id="manage-status-3"
+                        class="offline">
+
+                        OFFLINE
+
+                    </strong>
+
+                    <button
+                        onclick="toggleCamera(3)">
+
+                        ON / OFF
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RECORDINGS PAGE
+        ====================================================== -->
+
+        <section
+            id="recordings"
+            class="page"
+            style="display:none;">
+
+
+            <div class="page-header">
+
+                <h1>
+                    Recordings
+                </h1>
+
+                <p>
+                    Recorded surveillance videos
+                </p>
+
+            </div>
+
+
+
+            <div class="panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Recorded Videos
+                        </h2>
+
+                        <p>
+                            AI-triggered surveillance recordings
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <input
+                    type="text"
+                    id="recording-search"
+                    placeholder="Search recordings..."
+                    oninput="filterRecordings()">
+
+
+
+                <div id="recordings-list">
+
+                    <p class="empty-message">
+
+                        No recordings available.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             EVENTS PAGE
+        ====================================================== -->
+
+        <section
+            id="events"
+            class="page"
+            style="display:none;">
+
+
+            <div class="page-header">
+
+                <h1>
+                    Detection Events
+                </h1>
+
+                <p>
+                    AI detected activities from all cameras
+                </p>
+
+            </div>
+
+
+
+            <!-- EVENT FILTERS -->
+
+            <div class="filter-buttons">
+
+                <button
+                    onclick="filterEvents('ALL')">
+
+                    ALL
+
+                </button>
+
+
+                <button
+                    onclick="filterEvents('PERSON')">
+
+                    PERSON
+
+                </button>
+
+
+                <button
+                    onclick="filterEvents('VEHICLE')">
+
+                    VEHICLE
+
+                </button>
+
+
+                <button
+                    onclick="filterEvents('ANIMAL')">
+
+                    ANIMAL
+
+                </button>
+
+            </div>
+
+
+
+            <div class="panel">
+
+                <div id="events-table">
+
+                    <p class="empty-message">
+
+                        No events detected yet.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ANALYTICS PAGE
+        ====================================================== -->
+
+        <section
+            id="analytics"
+            class="page"
+            style="display:none;">
+
+
+            <div class="page-header">
+
+                <h1>
+                    Analytics
+                </h1>
+
+                <p>
+                    Surveillance analytics and statistics
+                </p>
+
+            </div>
+
+
+
+            <!-- ANALYTICS CARDS -->
+
+            <div class="analytics-grid">
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        Total Detections
+                    </span>
+
+                    <strong id="total-detections">
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        People Detected
+                    </span>
+
+                    <strong id="total-people">
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        Vehicles Detected
+                    </span>
+
+                    <strong id="total-vehicles">
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="analytics-card">
+
+                    <span>
+                        Total Recordings
+                    </span>
+
+                    <strong id="total-recordings">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ANALYTICS PANEL -->
+
+            <div class="panel analytics-chart">
+
+                <h2>
+                    Detection Analytics
+                </h2>
+
+                <div class="chart-placeholder">
+
+                    Analytics data will appear here.
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
