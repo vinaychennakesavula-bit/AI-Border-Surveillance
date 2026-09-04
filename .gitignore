@@ -1,0 +1,19 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+
+# Recorded videos
+backend/recordings/
+
+# Environment variables
+.env
+
+# VS Code settings
+.vscode/
+
+# Log files
+*.log

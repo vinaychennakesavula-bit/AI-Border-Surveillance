@@ -2,7 +2,7 @@
 // BACKEND
 // ============================================================
 
-const BACKEND = "https://ai-border-surveillance.onrender.com";
+const BACKEND = "https://fifty-shale-bling.ngrok-free.dev";
 
 
 // ============================================================
